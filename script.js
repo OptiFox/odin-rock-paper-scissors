@@ -49,22 +49,17 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-
     const MAX_ROUND = 5;
 
     for (let rounds = 1; rounds <= MAX_ROUND; rounds++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
         console.log(`\nRound #${rounds}\n`);
         playRound(humanSelection, computerSelection);
 
         console.log("\nHuman Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
-
-        if (rounds < 5) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-        }
     }
 }
 
