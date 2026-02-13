@@ -18,39 +18,37 @@ function playRound(humanChoice, computerChoice) {
     const capitalizeHuman = humanChoice[0].toUpperCase() + humanChoice.slice(1);
     const capitalizeComputer = computerChoice[0].toUpperCase() + computerChoice.slice(1);
 
-    let outputTie = "It's a tie!";
-    let outputWin = `You won! ${capitalizeHuman} beats ${capitalizeComputer}.`;
-    let outputLose = `You lose! ${capitalizeComputer} beats ${capitalizeHuman}.`;
+    let outputTie = () => console.log("It's a tie!");
+    let outputWin = () => {
+        console.log(`You won! ${capitalizeHuman} beats ${capitalizeComputer}.`);
+        humanScore++;
+    };
+    let outputLose = () => {
+        console.log(`You lose! ${capitalizeComputer} beats ${capitalizeHuman}.`);
+        computerScore++;
+    };
+
+    if (humanChoice === computerChoice) {
+        outputTie();
+    }
 
     if (humanChoice === 'rock') {
-        if (computerChoice === 'rock') {
-            console.log(outputTie);
-        } else if (computerChoice === 'paper') {
-            console.log(outputWin);
-            computerScore++;
+        if (computerChoice === 'paper') {
+            outputLose();
         } else if (computerChoice === 'scissors') {
-            console.log(outputLose);
-            humanScore++;
+            outputWin();
         }
     } else if (humanChoice === 'paper') {
         if (computerChoice === 'rock') {
-            console.log(outputWin);
-            humanScore++;
-        } else if (computerChoice === 'paper') {
-            console.log(outputTie);
+            outputWin();
         } else if (computerChoice === 'scissors') {
-            console.log(outputLose);
-            computerScore++;
+            outputLose();
         }
     } else if (humanChoice === 'scissors') {
         if (computerChoice === 'rock') {
-            console.log(outputLose);
-            computerScore++;
+            outputLose();
         } else if (computerChoice === 'paper') {
-            console.log(outputWin);
-            humanScore++;
-        } else if (computerChoice === 'scissors') {
-            console.log(outputTie);
+            outputWin();
         }
     }
 }
@@ -61,6 +59,8 @@ function playGame() {
     for (let rounds = 1; rounds <= MAX_ROUND; rounds++) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
+
+        console.log(humanSelection + computerSelection);
 
         console.log(`\nRound #${rounds}\n`);
         playRound(humanSelection, computerSelection);
