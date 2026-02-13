@@ -15,35 +15,42 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
+    const capitalizeHuman = humanChoice[0].toUpperCase() + humanChoice.slice(1);
+    const capitalizeComputer = computerChoice[0].toUpperCase() + computerChoice.slice(1);
+
+    let outputTie = "It's a tie!";
+    let outputWin = `You won! ${capitalizeHuman} beats ${capitalizeComputer}.`;
+    let outputLose = `You lose! ${capitalizeComputer} beats ${capitalizeHuman}.`;
+
     if (humanChoice === 'rock') {
         if (computerChoice === 'rock') {
-            console.log("It's a tie!");
+            console.log(outputTie);
         } else if (computerChoice === 'paper') {
-            console.log("You lose! Paper beats Rock.");
+            console.log(outputWin);
             computerScore++;
         } else if (computerChoice === 'scissors') {
-            console.log("You won! Rock beats Scissors.");
+            console.log(outputLose);
             humanScore++;
         }
     } else if (humanChoice === 'paper') {
         if (computerChoice === 'rock') {
-            console.log("You won! Paper beats Rock.");
+            console.log(outputWin);
             humanScore++;
         } else if (computerChoice === 'paper') {
-            console.log("It's a tie!");
+            console.log(outputTie);
         } else if (computerChoice === 'scissors') {
-            console.log("You lose! Scissors beats Paper.");
+            console.log(outputLose);
             computerScore++;
         }
     } else if (humanChoice === 'scissors') {
         if (computerChoice === 'rock') {
-            console.log("You lose! Rock beats Scissors.");
+            console.log(outputLose);
             computerScore++;
         } else if (computerChoice === 'paper') {
-            console.log("You won! Scissors beats Paper.");
+            console.log(outputWin);
             humanScore++;
         } else if (computerChoice === 'scissors') {
-            console.log("It's a tie!");
+            console.log(outputTie);
         }
     }
 }
