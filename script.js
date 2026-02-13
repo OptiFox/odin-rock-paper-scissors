@@ -60,8 +60,6 @@ function playGame() {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
 
-        console.log(humanSelection + computerSelection);
-
         console.log(`\nRound #${rounds}\n`);
         playRound(humanSelection, computerSelection);
 
