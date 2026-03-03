@@ -89,6 +89,7 @@ resetButton.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
 
+    result.textContent = "Tap buttons to start playing!";
     displayHuman.textContent = "Human Score: " + humanScore;
     displayComputer.textContent = "Computer Score: " + computerScore;
 })
