@@ -56,7 +56,7 @@ const displayHuman = document.querySelector(".human");
 const displayComputer = document.querySelector(".computer");
 
 const displayResult = document.querySelector(".result");
-const result = document.createElement("p");
+const result = document.querySelector("p");
 
 displayHuman.textContent = "Human Score: " + humanScore;
 displayComputer.textContent = "Computer Score: " + computerScore;
@@ -74,10 +74,10 @@ buttons.forEach((button) => {
         displayComputer.textContent = "Computer Score: " + computerScore;
 
         if (humanScore >= 5) {
-            result.textContent = "Game ended! You won!";
+            result.textContent = "You won! Game ended.";
             for (const button of buttons) button.disabled = true;
         } else if (computerScore >= 5) {
-            result.textContent = "Game ended! Computer won!";
+            result.textContent = "Computer won! Game ended. ";
             for (const button of buttons) button.disabled = true;
         }
     });
