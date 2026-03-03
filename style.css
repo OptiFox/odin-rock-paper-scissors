@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: azure;
+    padding: 0;
+    margin: 0;
+}
+
+.btn {
+    display: flex;
+}
+
+.btn button {
+    margin: 2px;
+}
